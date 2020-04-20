@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
-
 def extract_page(linkp):
   result = requests.get(linkp)
   soup = BeautifulSoup(result.text, "html.parser")
@@ -46,4 +44,8 @@ def extract_review(link, max_comment_page):
       reviews.append(tmp)
       cnt += 1
   return reviews
+  
+
+ 
+
   

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Search</title>
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(100, 1fr);
+      }
+      .v0 {
+        grid-column: 1 / 4;
+      }
+      .v1 {
+        grid-column: 5 / 14;
+      }
+      .v2 {
+        grid-column: 15 / 24;
+      }
+      .v3 {
+        grid-column: 25 / 34;
+      }
+      .v4 {
+        grid-column: 35 / 44;
+      }
+      .v5 {
+        grid-column: 45 / 54;
+      }
+      .v6 {
+        grid-column: 55 / 64;
+      }
+      .v7 {
+        overflow:scroll;
+        grid-column: 65 / 101;
+        height:120px;
+      }
+      .vv7 {
+        grid-column: 65 / 101;
+      }
+      .hr {
+        border: 0.8px dashed black;
+        width: 100%;
+        color: black;
+        grid-column: 1 / 101;
+      }
+      .hrr {
+        border: 1.1px dashed black;
+        width: 100%;
+        color: black;
+        grid-column: 1 / 101;
+      }
+      .vl {
+        border-left: 1px dashed black;
+        height: 100%;
+      }
+      .vll {
+        border-left: 1.1px dashed black;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    <h3>Movie ranking {{start}} to {{end}} comments {{page}} pages result</h3>
+    <hr class="hrr">
+    <section>
+      <h4 class="v0">rank</h4>
+      <div class="vll"></div>
+      <h4 class="v1">제목</h4>
+      <div class="vll"></div>
+      <h4 class="v2">평점</h4>
+      <div class="vll"></div>
+      <h4 class="v3">감독</h4>
+      <div class="vll"></div>
+      <h4 class="v4">상영시간</h4>
+      <div class="vll"></div>
+      <h4 class="v5">예매율</h4>
+      <div class="vll"></div>
+      <h4 class="v6">링크</h4>
+      <div class="vll"></div>
+      <h4 class="vv7">댓글</h4>
+      <hr class="hrr">
+      {% for movie in movies %}
+        <span class="v0">{{movie.rank}}</span>
+        <div class="vl"></div>
+        <span class="v1">{{movie.제목}}</span>
+        <div class="vl"></div>
+        <span class="v2">{{movie.평점}}</span>
+        <div class="vl"></div>
+        <span class="v3">{{movie.감독}}</span>
+        <div class="vl"></div>
+        <span class="v4">{{movie.상영시간}}</span>
+        <div class="vl"></div>
+        <span class="v5">{{movie.예매율}}</span>
+        <div class="vl"></div>
+        <a class="v6" href="{{movie.link}}" target="_blank">Link</a>
+        <div class="vl"></div>
+        <span class="v7">{{movie.comment}}</span>
+        <hr class="hr">
+      {% endfor %}
+    </section>
+  </body>
+</html>
